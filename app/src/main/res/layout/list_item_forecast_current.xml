@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="imageUrl" type="String"/>
+        <variable name="date" type="String"/>
+        <variable name="description" type="String"/>
+        <variable name="temperature" type="String"/>
+        <variable name="windSpeed" type="String"/>
+        <variable name="humidity" type="String"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout"
+    >
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                tools:src="@drawable/image_placeholder"
+                app:imageUrl="@{imageUrl}"
+                android:id="@+id/imageViewCurrent"
+                android:adjustViewBounds="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
+                android:text="Wind Speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewWindCaption"
+                android:gravity="end"
+                android:textColor="@color/colorSecondaryText"
+                app:layout_constraintTop_toBottomOf="@+id/textViewWindSpeed"
+                app:layout_constraintStart_toStartOf="@+id/textViewWindSpeed"
+        />
+        <TextView
+                tools:text="99MPH"
+                android:text="@{windSpeed}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewWindSpeed"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textColor="@color/colorSecondaryText"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewCurrent"
+                app:layout_constraintStart_toEndOf="@+id/textViewCurrentTempCaption"
+                app:layout_constraintEnd_toStartOf="@+id/textViewHumidityCaption"/>
+        <TextView
+                tools:text="Today, 3:00 PM"
+                android:text="@{date}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewCurrentDate"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textAllCaps="false"
+                android:textSize="24sp"
+                android:textColor="@color/colorSecondaryText"
+                android:layout_marginTop="24dp"
+                android:textStyle="bold" android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+                tools:text="Description"
+                android:text="@{description}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewCurrentDescription"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:textColor="@color/colorSecondaryText"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCurrentDate"
+                app:layout_constraintEnd_toEndOf="@+id/textViewCurrentDate"
+                android:gravity="end"/>
+        <TextView
+                android:text="Temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewCurrentTempCaption"
+                android:gravity="end"
+                android:textColor="@color/colorSecondaryText"
+                app:layout_constraintStart_toStartOf="@id/textViewCurrentTemp"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCurrentTemp"
+        />
+        <TextView
+                tools:text="25\u2103"
+                android:text="@{temperature}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewCurrentTemp"
+                android:textSize="30sp"
+                android:textColor="@color/colorSecondaryText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewCurrent" android:textStyle="bold"
+                android:layout_marginStart="16dp"/>
+        <TextView
+                android:text="Humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewHumidityCaption"
+                android:gravity="end"
+                android:textColor="@color/colorSecondaryText"
+                app:layout_constraintTop_toBottomOf="@+id/textViewHumidity"
+                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="24dp"
+                app:layout_constraintStart_toStartOf="@+id/textViewHumidity"
+        />
+        <TextView
+                tools:text="99%"
+                android:text="@{humidity}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewHumidity"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textColor="@color/colorSecondaryText"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewCurrent"
+                app:layout_constraintEnd_toEndOf="parent" android:gravity="end" android:layout_marginEnd="16dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
